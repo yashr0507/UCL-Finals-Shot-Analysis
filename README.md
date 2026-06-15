@@ -2,81 +2,134 @@
 
 ## Overview
 
-This project analyzes shot data from UEFA Champions League Finals between 2009 and 2019 using StatsBomb Open Data. The goal was to explore shooting efficiency, expected goals (xG), player overperformance relative to xG, and shot location patterns in football's biggest club match.
+This project analyzes shot data from UEFA Champions League Finals between 2009 and 2019 using the StatsBomb Open Data dataset.
+
+The objective was to explore shooting patterns, player performance, and expected goals (xG) in some of the most important matches in world football. The analysis combines data processing, statistical analysis, and data visualization using Python.
+
 
 ## Dataset
 
-* Competition: UEFA Champions League Finals
-* Seasons: 2009–2019
-* Total Shots: 321
-* Total Goals: 40
-* Data Source: StatsBomb Open Data
+Source: StatsBomb Open Data
 
-## Objectives
+Competition:
 
-* Analyze shot distribution across different areas of the pitch.
-* Compare goals scored against expected goals (xG).
-* Identify the biggest xG overperformers and underperformers.
-* Compare the shooting profiles of Lionel Messi and Cristiano Ronaldo in UCL Finals.
-* Visualize spatial shooting patterns using football pitch maps.
+* UEFA Champions League
 
-## Key Findings
+Seasons:
 
-* Most shots were taken from inside the penalty area.
-* Gareth Bale recorded the highest positive 'Goals − x' value among players with at least five shots.
-* Arjen Robben recorded the largest negative 'Goals − xG' value among players with at least five shots.
-* Messi and Ronaldo showed different shot selection patterns despite producing similar levels of shot quality.
+* 2008/09 to 2018/19 Finals
+
+Data includes:
+
+* Shot locations
+* Expected Goals (xG)
+* Shot outcomes
+* Player information
+* Match information
+
+Penalty shootout events were excluded from the analysis.
+
+
+## Key Questions
+
+* Which players overperformed their expected goals?
+* Which players underperformed their expected goals?
+* Where are most shots taken from in Champions League Finals?
+* How do Lionel Messi and Cristiano Ronaldo compare in terms of shot quality and finishing?
+* How are shots distributed across different shooting zones?
+  
+
+## Methodology
+
+### Data Processing
+
+The event data from each final was loaded and filtered to include only shot events.
+
+For each shot, the following variables were extracted:
+
+* Match ID
+* Player Name
+* Shot Location (x, y)
+* Expected Goals (xG)
+* Shot Outcome
+
+Players with fewer than five shots across all finals were excluded from player-level comparisons to reduce small-sample bias.
+
+
+### Shot Zones
+
+Shots were classified into three zones:
+
+1. Six-Yard Box
+2. Penalty Box
+3. Outside Penalty Box
+
+This allowed analysis of where shots were taken and how goal-scoring probability varied by location.
+
 
 ## Visualizations
 
+The project generates:
+
 ### Messi vs Ronaldo Shot Map
 
-Comparison of shot locations, goals, and xG in Champions League Finals.
+Comparison of:
+
+* Shot locations
+* Goal locations
+* Shot quality (xG)
+* Total goals scored
 
 ### xG Overperformers
 
-Players who scored more goals than expected based on shot quality.
+Players who scored more goals than expected based on xG.
+
+Metric:
+
+Goals − xG
 
 ### xG Underperformers
 
-Players who scored fewer goals than expected based on shot quality.
+Players who scored fewer goals than expected based on xG.
+
+Metric:
+
+Goals − xG
 
 ### Shot Zone Distribution
 
 Percentage of shots taken from:
 
-* 6-yard box
+* Six-yard box
 * Penalty box
 * Outside penalty box
 
-### Shot Location Map by Zone
+### Shot Zone Map
 
-Spatial visualization of all shots categorized by shooting zone.
+Visualization of all shots grouped by shooting zone.
 
-## Methodology
 
-Expected Goals (xG) values were provided directly by StatsBomb.
-
-For player-level xG comparisons, only players with at least five shots were included to reduce small-sample bias.
-
-Shot locations were grouped into three zones:
-
-* 6-yard box
-* Penalty box
-* Outside penalty box
-
-## Tools Used
+## Technologies Used
 
 * Python
 * Pandas
 * Matplotlib
 * mplsoccer
-* StatsBomb Open Data
+
+
+## Key Findings
+
+* Most shots in Champions League Finals originate from inside the penalty area.
+* Finishing performance varies significantly even among elite players.
+* Expected Goals provides a useful benchmark for evaluating finishing efficiency.
+* Shot location strongly influences scoring probability.
+
 
 ## Future Improvements
 
-* Shot angle analysis
-* Team-level comparisons
-* Season-by-season xG trends
-* Pass network analysis
-* Shot assist analysis
+* Include additional Champions League seasons
+* Analyze team-level shooting performance
+* Compare different competitions
+* Build interactive visualizations using Plotly
+* Investigate trends in xG over time
+
